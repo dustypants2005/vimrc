@@ -9,18 +9,28 @@ nnoremap <leader>q ZQ<CR>
 nnoremap <leader><tab> :NERDTreeToggle<CR>
 nnoremap <leader>w :w<CR>
 
+" tab shortcuts
 nnoremap tk :tabnext<CR>
 nnoremap tj :tabprev<CR>
 nnoremap th :tabfirst<CR>
 nnoremap tl :tablast<CR>
 
+" Buffer shorcuts
+nnoremap <leader>b :ls<CR>
+nnoremap <leader>n :bn<CR>
+nnoremap <leader>p :bp<CR>
+nnoremap <leader>d :bd<CR>
+
+" Window shortcuts
 nnoremap <leader>h <C-w><left><CR>
 nnoremap <leader>j <C-w><down><CR>
 nnoremap <leader>k <C-w><up><CR>
 nnoremap <leader>l <C-w><right><CR>
 
+" window split shortcuts
 nnoremap <leader>s :sp<CR>
 nnoremap <leader>S :vs<CR> 
+
 source ~/.vim_runtime/vimrcs/basic.vim
 source ~/.vim_runtime/vimrcs/filetypes.vim
 source ~/.vim_runtime/vimrcs/plugins_config.vim 
