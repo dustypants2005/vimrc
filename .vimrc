@@ -1,7 +1,14 @@
 set runtimepath+=~/.vim_runtime
+set encoding=utf-8
+
+autocmd vimenter * NERDTree
+autocmd StdinReadPre * let s:std_in=1 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd StdinReadPre * let s:std_in=1 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 let mapleader = "\<Space>"
+
+let g:NERDTreeWinPos = "left"
 
 " KEYS **************************************
 
@@ -17,7 +24,7 @@ nnoremap tl :tablast<CR>
 
 " Buffer shorcuts
 nnoremap <leader>b :ls<CR>
-nnoremap <leader>n :bn<CR>
+nnoremap <leader>n :bnext<CR>
 nnoremap <leader>p :bp<CR>
 nnoremap <leader>d :bd<CR>
 
@@ -30,6 +37,15 @@ nnoremap <leader>l <C-w><right><CR>
 " window split shortcuts
 nnoremap <leader>s :sp<CR>
 nnoremap <leader>S :vs<CR> 
+
+" Window resize split
+nnoremap <leader>= <C-w>=<CR>
+nnoremap <leader>- <C-w>_<CR>
+
+" Window resize vsplit
+nnoremap <leader>> <C-w>><CR>
+nnoremap <leader>< <C-w><<CR>
+nnoremap <leader>\ <C-w>|<CR>
 
 source ~/.vim_runtime/vimrcs/basic.vim
 source ~/.vim_runtime/vimrcs/filetypes.vim
@@ -76,6 +92,12 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " NerdTree
 Plugin 'scrooloose/nerdtree'
 
+" ctags
+Plugin 'majutsushi/tagbar'
+
+" tern for vim
+Plugin 'marijnh/tern_for_vim'
+
 " vim js
 Plugin 'pangloss/vim-javascript' 
 
@@ -106,6 +128,8 @@ Plugin 'mxw/vim-jsx'
 Plugin 'ervandew/supertab'
 
 Plugin 'altercation/vim-colors-solarized'
+
+Plugin 'kien/ctrlp.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
